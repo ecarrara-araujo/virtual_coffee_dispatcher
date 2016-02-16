@@ -1,0 +1,14 @@
+apply plugin: 'java'
+
+jar {
+    baseName = 'virtual-coffee-machine-dispatcher'
+    version = '1.0.0'
+    
+    manifest {
+        attributes 'Main-Class': 'br.eng.ecarrara.vcmd.VirtualCoffeeMachineDispatcherMain'
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.8'
+}
