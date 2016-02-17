@@ -9,6 +9,15 @@ jar {
     }
 }
 
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.hamcrest:hamcrest-integration:1.3'
+}
+
 task wrapper(type: Wrapper) {
     gradleVersion = '2.8'
 }
