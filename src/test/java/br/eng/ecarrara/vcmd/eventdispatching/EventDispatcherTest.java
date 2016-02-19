@@ -21,7 +21,7 @@ public class EventDispatcherTest {
     @Before public void setUp() {
         this.eventDispatcher = new MockEventDispatcherThread();
         eventDispatcher.startProcessingEvents();
-        this.mockEvent = new MockEvent();
+        this.mockEvent = new MockEvent(this.eventDispatcher);
     }
 
     @After public void tearDown() {
@@ -47,5 +47,5 @@ public class EventDispatcherTest {
     public void testNullPointerExceptionThrownWhenNullEventIsPosted() {
         eventDispatcher.post(null);
     }
-    
+
 }
