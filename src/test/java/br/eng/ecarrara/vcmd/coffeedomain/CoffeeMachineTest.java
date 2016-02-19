@@ -60,6 +60,11 @@ public class CoffeeMachineTest {
                 "Latte is under preparation... Latte ready.");
     }
 
+    @Test public void testDispatchShutdownOrder() {
+        testDispatchOrderExpectingMessage(CoffeeMachine.SHUT_DOWN_ORDER,
+                "The machine was shut down.");
+    }
+
     @Test public void testDispatchUnknownOrder() {
         testDispatchOrderExpectingMessage(-999, "Cannot produce order.");
     }

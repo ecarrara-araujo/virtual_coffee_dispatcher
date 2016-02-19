@@ -19,6 +19,7 @@ public class CoffeeMachine extends EventDispatcherThread {
     public static final int PRODUCT_CODE_LATTE = 4;
 
     public static final int PRODUCT_READY = 0;
+    public static final int SHUT_DOWN_ORDER = 999;
 
     public static final int ERROR_NO_INGREDIENTS = -1;
     public static final int ERROR_MACHINE_TOO_HOT = -2;
@@ -61,9 +62,17 @@ public class CoffeeMachine extends EventDispatcherThread {
             case PRODUCT_CODE_LATTE:
                 prepareLatte();
                 break;
+            case SHUT_DOWN_ORDER:
+                shutdown();
+                break;
             default:
                 rejectOrder();
         }
+    }
+
+    private void shutdown() {
+        this.stopProcessingEvents();
+        System.out.println("The machine was shut down.");
     }
 
     private void rejectOrder() {
